@@ -1,0 +1,22 @@
+<!--WIKI SHOW-->
+<div class="jumbotron">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <h1 id="index">Wikis#show</h1>
+            <p id="index">Find me in app/views/wikis/show.html.erb</p>
+        </div>    
+    </div>    
+</div>    
+<div class="container">
+    <table>
+        <tr><th>Wikis</th></tr>
+        <tr><td><%= @wiki.title %></td></tr>
+        <tr><td><%= @wiki.body %></td></tr>
+        <tr>
+            <td><%= link_to "Edit", edit_wiki_path(@wiki)%></td>
+            <td><%= link_to "Delete", wiki_path(@wiki), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+    </table>
+</div>
+
+
