@@ -1,20 +1,2 @@
-<!--WIKI EDIT-->
-<div class="jumbotron">
-    <div class="row">
-        <div class="col-md-6 col-md-offset-3">
-            <h1 id="index">Wikis#edit</h1>
-            <p id="index">Find me in app/views/wikis/edit.html.erb</p>
-        </div>    
-    </div>    
-</div>    
-
-<div class="container">
-    <%= form_for :wiki, url: wiki_path(@wiki), method: :patch do |f| %>
-            <%= f.label "Wiki Title" %>
-            <%= f.text_field :title, autofocus: true, class: 'form-control', placeholder: "Title of your wiki" %>
-            <%= f.label "Description" %>
-            <%= f.text_area :body, cols: 20, rows: 20, autofocus: true, class: 'form-control', placeholder: "Description" %>
-            
-            <%= f.submit "Edit" %>
-    <% end %>
-</div>
+<h1>Edit Wiki</h1>
+<%= render partial: 'form', locals: {wiki: @wiki } %>
