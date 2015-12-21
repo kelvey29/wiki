@@ -34,5 +34,6 @@ group :development do
   gem 'devise'
   gem 'simple_form', '~> 3.2'
   gem 'pundit'
+  gem 'stripe'
 end
 

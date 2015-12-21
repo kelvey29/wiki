@@ -1,0 +1,13 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <h1>Upgrade your account to premium!</h1>
+            <h2>Click the button below to start today <%= current_user.email.split("@").first.capitalize %></h2>
+        </div>
+        <div class="col-md-6 col-md-offset-5">
+            <%= form_tag charges_path do %>
+                <script class='stripe-button' src="https://checkout.stripe.com/checkout.js" data-key="<%= @stripe_btn_data[:key] %>" data-amount=<%= @stripe_btn_data[:amount] %> data-description="<%= @stripe_btn_data[:description] %>" ></script>
+            <% end %>
+        </div>
+    </div>
+</div>

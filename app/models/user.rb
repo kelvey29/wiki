@@ -1,8 +1,5 @@
 class User < ActiveRecord::Base
   has_many :wikis, dependent: :destroy
-  
-  devise :database_authenticatable, :registerable, 
-         :recoverable, :rememberable, :trackable, :validatable
          
   enum role: [:standard, :premium, :admin]
   
@@ -24,5 +21,7 @@ class User < ActiveRecord::Base
     role == "admin"
   end
   
+  devise :database_authenticatable, :registerable, 
+         :recoverable, :rememberable, :trackable, :validatable
    
 end
