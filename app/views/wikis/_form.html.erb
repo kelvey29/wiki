@@ -9,7 +9,7 @@
     <%= simple_form_for @wiki do |f| %>
         <%= f.input :title %>
         <%= f.input :body %>
-        <% if current_user && current_user.premium? %>
+        <% if current_user.admin? || current_user.premium? %>
             Private? <%= f.input :private %>
         <% end %>
         <%= f.submit "Submit" %>

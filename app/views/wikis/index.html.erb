@@ -7,11 +7,12 @@
         </div>    
     </div>    
 </div>    
-<div class="container">
-    <h1>All Wikis</h1>
-    
-    <% @wikis.each do |w| %>
-        <p><%= link_to w.title, w %></p>
-    <% end %>
+<div class="panel panel-default">
+    <div class="panel-heading">All Wikis</div>
+    <div class="panel-body">
+        <% @wikis.each do |w| %>
+            <p><%= link_to w.title, w %></p>
+        <% end %>
+    </div>
 </div>
 

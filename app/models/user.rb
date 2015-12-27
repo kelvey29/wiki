@@ -21,6 +21,10 @@ class User < ActiveRecord::Base
     role == "admin"
   end
   
+  def can_update(resource)
+    self.admin? || resource.user == self
+  end
+
   devise :database_authenticatable, :registerable, 
          :recoverable, :rememberable, :trackable, :validatable
    

@@ -2,7 +2,7 @@ class WikisController < ApplicationController
   before_filter :authenticate_user!, :except => [:index, :show]
  
   def index
-    @wikis = Wiki.all
+    @wikis = Wiki.visible_to(current_user)
   end
 
   def show
@@ -30,9 +30,9 @@ class WikisController < ApplicationController
   end
   
   def update
-    authorize @wiki
     @wiki = Wiki.find(params[:id])
     @wiki.assign_attributes(wiki_params)
+    authorize @wiki
     
     
     if @wiki.update(wiki_params)
