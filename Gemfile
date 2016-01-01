@@ -35,5 +35,6 @@ group :development do
   gem 'simple_form', '~> 3.2'
   gem 'pundit'
   gem 'stripe'
+  gem 'redcarpet', '~> 3.3', '>= 3.3.4'
 end
 

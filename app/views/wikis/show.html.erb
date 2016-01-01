@@ -11,7 +11,7 @@
     <table>
         <tr><th>Wikis</th></tr>
         <tr><td><%= @wiki.title %></td></tr>
-        <tr><td><%= @wiki.body %></td></tr>
+        <tr><td><%= markdown(@wiki.body) %></td></tr>
         <tr>
             <td>
                 <%= link_to "Edit", edit_wiki_path(@wiki)%>
