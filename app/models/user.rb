@@ -9,22 +9,10 @@ class User < ActiveRecord::Base
     self.role ||= :standard
   end
   
-  def standard?
-    role == "standard"
-  end
-  
-  def premium?
-    role == "premium"
-  end
-  
-  def admin?
-    role == "admin"
-  end
-  
-  def can_update(resource)
+  def can_update?(resource)
     self.admin? || resource.user == self
   end
-
+  
   devise :database_authenticatable, :registerable, 
          :recoverable, :rememberable, :trackable, :validatable
    
