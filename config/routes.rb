@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   
   resources :wikis
  
-  devise_for :users, :controllers => { registrations: 'registrations' }
+  devise_for :users 
+  
+  put 'downgrade' => 'charges#downgrade'
   
   get 'about' => 'welcome#about'
   

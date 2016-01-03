@@ -29,5 +29,11 @@ class ChargesController < ApplicationController
             flash[:error] = e.message
             redirect_to new_charge_path
     end
+    
+    def downgrade
+        current_user.update_attributes(role: "standard")
+        
+        redirect_to root_path, notice: "You've been downgraded successfully"
+    end
 
 end
