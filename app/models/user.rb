@@ -13,6 +13,8 @@ class User < ActiveRecord::Base
     self.admin? || resource.user == self
   end
   
+  
+  
   devise :database_authenticatable, :registerable, 
          :recoverable, :rememberable, :trackable, :validatable
    

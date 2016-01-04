@@ -7,7 +7,7 @@ class Wiki < ActiveRecord::Base
   def self.visible_to(user)
     wikis = []
     return wikis if user.nil?
-    wikis = Wiki.where(private: nil)
+    wikis = Wiki.where(private: false)
 
     if user.premium?
       wikis = wikis + Wiki.where(private: true)

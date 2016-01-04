@@ -1,4 +1,5 @@
 class ChargesController < ApplicationController
+    include ChargesHelper
     
     def new
         @stripe_btn_data = {
@@ -32,6 +33,7 @@ class ChargesController < ApplicationController
     
     def downgrade
         current_user.update_attributes(role: "standard")
+        make_public
         
         redirect_to root_path, notice: "You've been downgraded successfully"
     end

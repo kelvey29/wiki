@@ -5,7 +5,8 @@ include Faker
 20.times do
    Wiki.create!(
        :title => Faker::Lorem.words.join('<'),
-       :body => Faker::Lorem.paragraphs.join('<br/>')
+       :body => Faker::Lorem.paragraphs.join('<br/>'),
+       :private => false
    ) 
 end
 
