@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="form-group">
+        <h3><span class="label label-default">Add a collaborator!</span></h3>
+        
+        <% if current_user.premium? || current_user.admin? && wiki.private == true %>
+            <%= form_tag wiki_collaborators_path(wiki) do |f| %>
+                <%= email_field_tag :email %>
+                <%= submit_tag %>
+            <% end %>
+        <% else %>
+                <%= link_to "Upgrade to a premium member to add collaborators!", new_charge_path %>
+        <% end %>
+    </div>
+</div>  
+<div class="container">
+    <div class="form-group">
+        <h3><span class="label label-default">Remove collaborator!</span></h3>
+        <% if current_user.premium? && wiki.collaborators %>
+            <%= form_tag wiki_collaborator_path(wiki, wiki.id), method: "delete" do |f| %>
+                <%#= hidden_field_tag 'wiki_id', value = collaborator.wiki_id%>
+                <%= email_field_tag :email %>
+                <%= submit_tag %>
+            <% end %>
+        <% end %>
+    </div>
+</div>
+    
