@@ -18,12 +18,13 @@ class CollaboratorsController < ApplicationController
    end
    
    def destroy
-     collaborators = Collaborator.where(id: :wiki_id)
-     collaborated_user = User.where(id: collaborators.pluck(:user_id))
+    #  collaborators = Collaborator.whe(id: @wiki.id)
+    #  collaborated_user = User.where(id: collaborators.pluck(:user_id))
     # @wiki = Wiki.find(params[:wiki_id])
     # @collaborator = Collaborator.find_by(id: @wiki)
+    collaborator = Collaborator.find(params[:id])
     
-     if collaborated_user.destroy
+     if collaborator.destroy
          flash[:notice] = "Collaborator removed"
      else
          flash[:error] = "Collaborator removal failed"
